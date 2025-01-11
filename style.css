@@ -34,7 +34,7 @@ h1 {
 .kart {
   padding: 10px;
   margin: 5px;
-  background-color: rgba(172, 154, 158, 0.342);
+  background-color: #eceff1; /* Kutuların arka planı */
   border-radius: 10px;
   width: 150px;
   height: 70px;
@@ -45,21 +45,41 @@ h1 {
   justify-content: center;
   font-size: 1.5rem;
   font-family: 'AmiriQuranColored', Arial, sans-serif;
-}
-
-.sutun {
-  display: flex;
-  flex-direction: column;
-  margin: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Kutularda gölge */
 }
 
 .hedef-alan {
   padding: 10px;
   margin: 5px;
-  background-color: #f3f3f3;
+  background-color: #e1f5fe; /* Türkçe anlam kutularının rengi */
   border-radius: 10px;
+  width: 150px;
+  height: 70px;
   text-align: center;
-  font-size: 1.2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  font-family: 'AmiriQuranColored', Arial, sans-serif;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Hedef kutusunda gölge */
+}
+
+.sutun {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  width: 200px;
+  margin: 0 10px;
+}
+
+.kelime-grubu {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 
 .navigation button {
@@ -76,13 +96,16 @@ h1 {
 .navigation button:hover {
   background-color: #1565c0;
 }
+.disabled {
+  background-color: #b0bec5; /* Tıklanamaz hale gelmiş kartlar için gri renk */
+  cursor: not-allowed;
+  opacity: 0.6;
+}
 
 .dogru {
-  background-color: #4caf50;
-  color: white;
+  background-color: #66bb6a; /* Doğru eşleşme için yeşil renk */
 }
 
 .yanlis {
-  background-color: #f44336;
-  color: white;
+  background-color: #ef5350; /* Yanlış eşleşme için kırmızı renk */
 }
