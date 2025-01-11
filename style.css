@@ -1,190 +1,88 @@
-/* Define the fonts */
-@font-face {
-  font-family: 'Amiri Bold';
-  src: url('assets/Amiri-Bold.ttf') format('truetype');
-  font-weight: bold;
-}
-
-@font-face {
-  font-family: 'Amiri Bold Italic';
-  src: url('assets/Amiri-BoldItalic.ttf') format('truetype');
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Amiri Quran';
-  src: url('assets/AmiriQuran-Regular.ttf') format('truetype');
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'Uthmanic Hafs';
-  src: url('assets/UthmanicHafs1Ver18.woff2') format('woff2');
-  font-weight: normal;
-}
-
-@font-face {
-  font-family: 'AmiriQuranColored';
-  src: url('assets/AmiriQuranColored-Regular.ttf') format('truetype');
-  font-weight: lighter;
-}
-
-
-
 body {
-  font-family: 'AmiriQuranColored'; /* İstediğin yazı fontunu yapıştır, @font-face deki font-family adı ne ise */
-  font-weight: 50;
+  font-family: 'AmiriQuranColored', Arial, sans-serif;
+  font-weight: normal;
   font-style: normal;
-  background-color: #90bcf1; /* Sayfanın arka plan rengi açık gri-mavi */
-  margin: 0; /* Sayfa kenarlarında boşluk bırakılmaz */
-  padding: 0; /* Sayfa içindeki boşluklar sıfırlanır */
-  color: #0a178f; /* Metin rengi koyu gri */
+  background-color: #90bcf1;
+  margin: 0;
+  padding: 0;
+  color: #0a178f;
 }
 
-/* Sayfa içeriği için ana konteyner */
 .container {
-  width: 100%; /* Konteyner genişliği ekranın %90'ı kadar olacak */
-  max-width: 1000px; /* Maksimum genişlik 1000px ile sınırlıdır */
-  margin: 10px auto; /* Üst ve alt boşluk 40px, sol ve sağda ortalanmış */
-  padding: 10px; /* İçeride 20px boşluk bırakılır */
-  background-color: #bdd3f0; /* Konteynerin arka planı beyaz */
-  border-radius: 10px; /* Köşeler yuvarlatılır */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Konteyner etrafına hafif gölge eklenir */
-  text-align: justify; /* İçerik ortalanır */
+  width: 100%;
+  max-width: 1000px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #bdd3f0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
-/* Başlık stili */
 h1 {
-  font-size: 1cm; /* Başlık font büyüklüğü */
-  margin-bottom: 5px; /* Başlık altında 1px boşluk bırakılır */
-  color: hsl(30deg 82% 43%); /* Başlık rengi kahverengi */
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: hsl(30, 82%, 43%);
 }
 
-/* Skor metni stili */
 .score {
-  font-size: 18px; /* Skor font büyüklüğü */
-  margin: 1 /* Skor metni üst ve alt tarafında 10px boşluk bırakılır */
-  color: #1e88e5; /* Skor rengi mavi */
-  font-weight: bold; /* Skor metni kalın yazılır */
+  font-size: 18px;
+  color: #1e88e5;
+  font-weight: bold;
 }
 
-/* Dosya yükleme input alanı */
-input[type="file"] {
-  display: unset; /* Input elemanı bloğa dönüştürülür */
-  margin: 10px auto; /* Üst ve alt boşluk 20px, sağda solda ortalanır */
-  padding: 10px; /* İçeriğe 10px boşluk verilir */
-  background-color: #afaef3; /* Arka plan rengi */
-  border: 2px solid #e1e7ec; /* Sınır rengi açık gri */
-  border-radius: 8px; /* Köşeler yuvarlatılır */
-  font-size: 12px; /* Yazı tipi büyüklüğü */
-  transition: border-color 0.3s; /* Kenar rengi değişimi yavaşça yapılır */
-}
-
-/* Dosya input alanına odaklanıldığında kenar rengi değişir */
-input[type="file"]:focus {
-  border-color: #5a2a0377; /* Odaklanıldığında mavi kenar rengi */
-  outline: none; /* Dış çerçeve (outline) kaldırılır */
-}
-
-/* Kelime gruplarını içeren kapsayıcı */
-.kelime-grubu {
-  display: flex; /* Flexbox kullanılarak düzenleme yapılır */
-  justify-content: center; /* Elemanlar ortalanır */
-  gap: 15px; /* Elemanlar arasına 5px boşluk */
-  margin-bottom: 20px; /* Alt tarafta 10px boşluk bırakılır */
-  flex-wrap: wrap; /* Elemanlar sarmalı şekilde yerleşir */
-}
-
-/* Sütunlar için stil */
-.sutun {
-  flex: 2; /* Her sütun eşit genişlikte olacak şekilde ayarlanır */
-  display: flex;
-  flex-direction: column-reverse; /* İçerik dikeyde düzenlenir */
-  align-items: center; /* Sütun içerisindeki öğeler ortalanır */
-}
-
-/* Kartlar için stil */
 .kart {
-  padding: 10px 100px; /* Kutu boyutları buradan değiştirilebilir */
-  margin: 5px; /* Kartlar arasında 10px boşluk bırakılır */
-  background-color: rgba(172, 154, 158, 0.342); /* Arka plan rengi açık sarı */
-  border-radius: 30px; /* Köşeler yuvarlatılır */
-  width: 150px; /* Kartlar genişliği 150px olur */
-  height: 70px; /* Kartlar yüksekliği 60px olur */
-  text-align: center; /* İçerik ortalanır */
-  cursor: grab; /* Fare imleci kart sürüklenebilir olduğunu gösterir */
-  transition: transform 0.2s ease, background-color 0.3s; /* Kart üzerine gelindiğinde animasyon eklenir */
+  padding: 10px;
+  margin: 5px;
+  background-color: rgba(172, 154, 158, 0.342);
+  border-radius: 10px;
+  width: 150px;
+  height: 70px;
+  text-align: center;
+  cursor: grab;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 41px; /* Kartların font büyüklüğü */
-  font-weight: lighter; /* Font hafifletilir */
-  line-height: 1.0; /* Satır yüksekliği ayarlanır */
-  overflow: hidden; /* Taşan içerik gizlenir */
-  text-overflow: ellipsis; /* Taşan metinde "..." görünür */
-  white-space: nowrap; 
-  font-family: 'AmiriQuranColored'; /* Kartlar için özel font */
+  font-size: 1.5rem;
+  font-family: 'AmiriQuranColored', Arial, sans-serif;
 }
 
-/* Hedef alanlar için stil */
+.sutun {
+  display: flex;
+  flex-direction: column;
+  margin: 10px;
+}
+
 .hedef-alan {
-  padding: 10px 100px; /* Kutu boyutları buradan değiştirilebilir */
-  margin: 5px; /* Hedef alanlar arasında boşluk bırakılır */
-  background-color: rgba(42, 150, 177, 0.342); /* Farklı bir arka plan rengi */
-  border-radius: 30px; /* Köşeler yuvarlatılır */
-  width: 150px; /* Hedef alan genişliği 150px olur */
-  height: 70px; /* Hedef alan yüksekliği 60px olur */
-  text-align: center; /* İçerik ortalanır */
-  cursor: default; /* Hedef alanların imleç tipi sabit */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 20px ; /* Hedef alanların font büyüklüğü */
-  font-weight: lighter; /* Hedef alanların font kalınlığı artırılır */
-  line-height: 1.2; /* Satır yüksekliği ayarlanır */
-  font-family: 'Uthmanic Hafs', Arial, Helvetica, sans-serif; /* Hedef alanlar için özel font */
+  padding: 10px;
+  margin: 5px;
+  background-color: #f3f3f3;
+  border-radius: 10px;
+  text-align: center;
+  font-size: 1.2rem;
 }
 
-/* Kart sürüklenirken opaklık azaltılır ve büyütülür */
-.kart.surukleniyor {
-  opacity: 0; /* Sürüklenen kartın yerini boşaltır */
-  transform: scale(0.5) translate(-100%, -100%); /* Sürüklenen kart döndürülür */
-}
-
-/* Doğru kartlar ve doğru hedef alanlar */
-.kart.dogru, .hedef-alan.dogru {
-  background-color: #d4edda; /* Doğru renk yeşil */
-  border: 2px solid #28a745; /* Doğru kenar rengi yeşil */
-  cursor: not-allowed; /* Fare imleci pasif hale gelir */
-}
-
-/* Yanlış hedef alanı */
-.hedef-alan.yanlis {
-  background-color: #f8d7da; /* Yanlış renk kırmızı */
-  border: 2px solid #dc3545; /* Yanlış kenar rengi kırmızı */
-}
-
-/* Navigasyon düğmeleri için stil */
 .navigation button {
-  padding: 12px 24px; /* Düğme içi boşluk */
-  margin: 10px 5px; /* Düğme dışı boşluk */
-  border: none; /* Sınır yok */
-  background-color: #1e88e5; /* Arka plan rengi mavi */
-  color: white; /* Yazı rengi beyaz */
-  border-radius: 6px; /* Köşeler yuvarlatılır */
-  cursor: pointer; /* Fare imleci tıklanabilir */
-  font-size: 16px; /* Yazı tipi büyüklüğü */
-  transition: background-color 0.3s; /* Renk değişimi animasyonu */
+  padding: 12px 24px;
+  margin: 10px 5px;
+  border: none;
+  background-color: #1e88e5;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
 }
 
-/* Düğme üzerine gelindiğinde arka plan rengi değişir */
 .navigation button:hover {
-  background-color: #1565c0; /* Hover durumunda koyu mavi */
+  background-color: #1565c0;
 }
 
-/* Düğme devre dışı olduğunda */
-.navigation button:disabled {
-  background-color: gray; /* Gri arka plan */
-  cursor: not-allowed; /* Fare imleci tıklanamaz hale gelir */
+.dogru {
+  background-color: #4caf50;
+  color: white;
+}
+
+.yanlis {
+  background-color: #f44336;
+  color: white;
 }
