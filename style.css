@@ -9,7 +9,7 @@ body {
 }
 
 .container {
-  width: 100%;
+  width: 90%;
   max-width: 1000px;
   margin: 10px auto;
   padding: 10px;
@@ -31,7 +31,8 @@ h1 {
   font-weight: bold;
 }
 
-.kart {
+.kart,
+.hedef-alan {
   padding: 10px;
   margin: 5px;
   background-color: #eceff1;
@@ -39,46 +40,19 @@ h1 {
   width: 150px;
   height: 70px;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.hedef-alan {
-  padding: 10px;
-  margin: 5px;
-  background-color: #e1f5fe;
-  border-radius: 10px;
-  width: 150px;
-  height: 70px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.sutun {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: flex-start;
-  width: 200px;
-  margin: 0 10px;
-}
-
-/* Sütunların yanında esnek boşluk ve hizalama eklemek */
 .kelime-grubu {
   display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
   justify-content: center;
+  margin: 20px 0;
+  flex-wrap: wrap;
 }
 
 .navigation button {
@@ -98,58 +72,25 @@ h1 {
 
 .dogru {
   background-color: #66bb6a;
+  pointer-events: none;
+  cursor: default;
 }
 
 .yanlis {
   background-color: #ef5350;
 }
 
-/* Türkçe anlam kutularının rengi */
-.hedef-alan {
-  padding: 10px;
-  margin: 5px;
-  background-color: #e1f5fe;
-  border-radius: 10px;
-  width: 150px;
-  height: 70px;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.5rem;
-  font-family: 'AmiriQuranColored', Arial, sans-serif;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  cursor: pointer;
-}
-
-.dogru {
-  background-color: #00bcd4;
-  pointer-events: none;
-  cursor: default;
-}
-
 /* Mobil uyumluluk için düzenlemeler */
 @media (max-width: 768px) {
-  .sutun {
-    width: 100%;
-    margin-bottom: 15px;
+  .container {
+    width: 95%;
+    padding: 15px;
   }
-  @media screen and (max-width: 768px) {
-    #app {
-        flex-direction: column;  /*Küçük ekranlarda, uygulama düşey olarak hizalanır */
-        height: auto;  /*Küçük ekranlarda, uygulama yüksekliği otomatik olarak ayarlanır */
-        padding: 10px;  /*Küçük ekranlarda, uygulama kenar boşlukları 10 piksel olarak ayarlanır */
-    }
-  
-    .arabic {
-        font-size: 80px; /*Küçük ekranlarda, Arapça kelime font boyutu 80 piksel olarak ayarlanır */
-        width: 95vw;        /*Küçük ekranlarda, Arapça kelime kartının genişliği 95 viewport genişliği olarak ayarlanır */
-        margin: 10px;     /*Küçük ekranlarda, Arapça kelime kartının kenar boşlukları 10 piksel olarak ayarlanır */
-    }
-  
-    .options button {
-        width: 100%;        /*Küçük ekranlarda, seçenek butonlarının genişliği yüzde 100 olarak ayarlanır */
-    }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
   .kelime-grubu {
     flex-direction: column;
     align-items: center;
@@ -158,7 +99,7 @@ h1 {
   .kart,
   .hedef-alan {
     width: 90%;
-    height: 50px;
+    height: 60px;
     font-size: 1.2rem;
   }
 
@@ -167,10 +108,31 @@ h1 {
     padding: 10px;
     font-size: 14px;
   }
+
+  .score {
+    font-size: 16px;
+  }
 }
 
+/* Daha küçük ekranlar için (örneğin 480px altı) */
+@media (max-width: 480px) {
+  h1 {
+    font-size: 1.5rem;
+  }
 
-  .options button {
-      width: 90%;        /*Küçük ekranlarda, seçenek butonlarının genişliği yüzde 100 olarak ayarlanır */
+  .kart,
+  .hedef-alan {
+    width: 100%;
+    height: 50px;
+    font-size: 1rem;
+  }
+
+  .navigation button {
+    font-size: 12px;
+    padding: 8px;
+  }
+
+  .score {
+    font-size: 14px;
   }
 }
