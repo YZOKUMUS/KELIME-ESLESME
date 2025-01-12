@@ -128,3 +128,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     return array.sort(() => Math.random() - 0.5);
   }
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const oyunAlani = document.getElementById("oyun-alani");
+  const kelimeGrubu = document.querySelector(".kelime-grubu");
+  
+  // Dinamik genişlik ayarları
+  window.addEventListener("resize", () => {
+    const maxCardWidth = Math.min(150, window.innerWidth / 5);
+    document.querySelectorAll(".kart, .hedef-alan").forEach((element) => {
+      element.style.maxWidth = `${maxCardWidth}px`;
+    });
+  });
+});
