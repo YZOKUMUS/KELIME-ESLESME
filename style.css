@@ -157,13 +157,13 @@ h1 {
 
   .kart,
   .hedef-alan {
-    width: 100%;
+    width: 90%;
     height: 50px;
     font-size: 1.2rem;
   }
 
   .navigation button {
-    width: 100%;
+    width: 90%;
     padding: 10px;
     font-size: 14px;
   }
@@ -171,6 +171,6 @@ h1 {
 
 
   .options button {
-      width: 100%;        /*Küçük ekranlarda, seçenek butonlarının genişliği yüzde 100 olarak ayarlanır */
+      width: 90%;        /*Küçük ekranlarda, seçenek butonlarının genişliği yüzde 100 olarak ayarlanır */
   }
 }
