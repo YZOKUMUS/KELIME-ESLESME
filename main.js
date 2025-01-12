@@ -69,8 +69,6 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
   
 
-
-
   // Grup render etme fonksiyonu
   function renderGroup() {
     oyunAlani.innerHTML = "";
@@ -110,6 +108,8 @@ document.addEventListener("DOMContentLoaded", async () => {
         element.addEventListener("click", () => handleTurkishClick(element));
       }
 
+      // Mobil cihazlar için dokunmatik olayları ekleme
+      element.addEventListener("touchstart", (e) => e.preventDefault()); // Touch start prevent
       sutun.appendChild(element);
     });
 
