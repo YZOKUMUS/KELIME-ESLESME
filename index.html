@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="tr">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,23 +14,17 @@
   <div class="container">
     <h1><strong style="font-style: italic">Arapça-Türkçe Eşleştirme Oyunu</strong></h1>
     <p class="score">Puan: <span id="score">0</span></p>
-    
-    <div id="oyun-alani"></div>
+
+    <div id="oyun-alani" class="kelime-grubu"></div>
+
     <div class="navigation">
       <button id="onceki-grup" disabled>Önceki</button>
       <button id="sonraki-grup">Sonraki</button>
     </div>
   </div>
-  <div id="oyun-alani"></div>
-  <div id="kontrol-paneli">
-    <button id="onceki-grup" disabled>Önceki Grup</button>
-    <button id="sonraki-grup" disabled>Sonraki Grup</button>
-    <span id="score">0</span>
-  </div>
-  
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.2/xlsx.full.min.js"></script>
   <script type="module" src="main.js"></script>
-  
 </body>
 
 </html>

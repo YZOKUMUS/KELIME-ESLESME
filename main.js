@@ -19,12 +19,16 @@ document.addEventListener("DOMContentLoaded", async () => {
       turkish: turkish_meaning,
       soundUrl: sound_url,
     }));
+
+    // Veriyi karıştır
+    shuffleArray(kelimeListesi);
     renderGroup();
   } catch (error) {
     console.error("JSON yükleme hatası:", error);
     return;
   }
 
+  // Önceki ve sonraki grup butonları
   prevButton.addEventListener("click", () => {
     currentGroupIndex--;
     renderGroup();
@@ -35,6 +39,39 @@ document.addEventListener("DOMContentLoaded", async () => {
     renderGroup();
   });
 
+  function addDropEvents(element) {
+    element.addEventListener("dragover", (e) => e.preventDefault());
+    element.addEventListener("drop", (e) => {
+      e.preventDefault();
+      const draggedArabic = e.dataTransfer.getData("text/plain");
+      const targetArabic = element.dataset.arabic;
+  
+      if (draggedArabic === targetArabic) {
+        element.classList.add("dogru");
+        const correctCard = document.querySelector(`[data-arabic="${draggedArabic}"]`);
+        correctCard.classList.add("dogru");
+  
+        score += 10;
+        scoreDisplay.textContent = score;
+  
+        element.setAttribute("draggable", "false");
+        correctCard.setAttribute("draggable", "false");
+  
+        playArabicAudio(draggedArabic);
+      } else {
+        element.classList.add("yanlis");
+        setTimeout(() => element.classList.remove("yanlis"), 500);
+  
+        score -= 5;
+        scoreDisplay.textContent = score;
+      }
+    });
+  }
+  
+
+
+
+  // Grup render etme fonksiyonu
   function renderGroup() {
     oyunAlani.innerHTML = "";
     const start = currentGroupIndex * groupSize;
@@ -45,6 +82,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const kelimeGrubu = document.createElement("div");
     kelimeGrubu.classList.add("kelime-grubu");
 
+    // Arapça ve Türkçe kelimeleri karıştır
     const arabicSutun = createColumn(group, "arabic", true);
     const turkishSutun = createColumn(shuffleArray(group), "turkish", false);
 
@@ -55,18 +93,22 @@ document.addEventListener("DOMContentLoaded", async () => {
     nextButton.disabled = start + groupSize >= kelimeListesi.length;
   }
 
-  function createColumn(data, key, isDraggable) {
+  // Kolonları oluşturma fonksiyonu
+  function createColumn(data, key, isArabic) {
     const sutun = document.createElement("div");
     sutun.classList.add("sutun");
 
     data.forEach((item) => {
       const element = document.createElement("div");
-      element.classList.add(isDraggable ? "kart" : "hedef-alan");
+      element.classList.add(isArabic ? "kart" : "hedef-alan");
       element.textContent = item[key];
       element.dataset.arabic = item.arabic;
 
-      if (isDraggable) addDragEvents(element);
-      else addDropEvents(element);
+      if (isArabic) {
+        element.addEventListener("click", () => handleArabicClick(item));
+      } else {
+        element.addEventListener("click", () => handleTurkishClick(element));
+      }
 
       sutun.appendChild(element);
     });
@@ -74,69 +116,46 @@ document.addEventListener("DOMContentLoaded", async () => {
     return sutun;
   }
 
-  function addDragEvents(element) {
-    element.setAttribute("draggable", "true");
-    element.addEventListener("dragstart", (e) => {
-      e.dataTransfer.setData("text/plain", element.dataset.arabic);
-      element.classList.add("surukleniyor");
-    });
-    element.addEventListener("dragend", () => element.classList.remove("surukleniyor"));
+  // Arapça kelime tıklama işlevi (sadece sound_url ile sesli okuma)
+  let selectedArabic = null;
+
+  function handleArabicClick(item) {
+    selectedArabic = item.arabic;
+    const audio = new Audio(item.soundUrl); // Sound URL üzerinden ses dosyasını oynat
+    audio.play();
   }
 
-  function addDropEvents(element) {
-    element.addEventListener("dragover", (e) => e.preventDefault());
-    element.addEventListener("drop", (e) => {
-      e.preventDefault();
-      const draggedArabic = e.dataTransfer.getData("text/plain");
-      const targetArabic = element.dataset.arabic;
-
-      if (draggedArabic === targetArabic) {
+  // Türkçe kelime tıklama işlevi
+  function handleTurkishClick(element) {
+    if (selectedArabic) {
+      const selectedTurkish = element.dataset.arabic;
+      if (selectedArabic === selectedTurkish) {
         element.classList.add("dogru");
-        const correctCard = document.querySelector(`[data-arabic="${draggedArabic}"]`);
+        const correctCard = document.querySelector(`[data-arabic="${selectedArabic}"]`);
         correctCard.classList.add("dogru");
 
         score += 10;
         scoreDisplay.textContent = score;
 
-        element.setAttribute("draggable", "false");
-        correctCard.setAttribute("draggable", "false");
-
-        playArabicAudio(draggedArabic);
+        selectedArabic = null;
       } else {
         element.classList.add("yanlis");
         setTimeout(() => element.classList.remove("yanlis"), 500);
 
         score -= 5;
         scoreDisplay.textContent = score;
-      }
-    });
-  }
 
-  function playArabicAudio(word) {
-    const kelime = kelimeListesi.find((item) => item.arabic === word);
-    if (kelime && kelime.soundUrl) {
-      const audio = new Audio(kelime.soundUrl);
-      audio.play();
-    } else {
-      const utterance = new SpeechSynthesisUtterance(word);
-      utterance.lang = "ar-SA";
-      speechSynthesis.speak(utterance);
+        selectedArabic = null;
+      }
     }
   }
 
+  // Array karıştırma fonksiyonu (Fisher-Yates)
   function shuffleArray(array) {
-    return array.sort(() => Math.random() - 0.5);
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+    return array;
   }
-});
-document.addEventListener("DOMContentLoaded", () => {
-  const oyunAlani = document.getElementById("oyun-alani");
-  const kelimeGrubu = document.querySelector(".kelime-grubu");
-  
-  // Dinamik genişlik ayarları
-  window.addEventListener("resize", () => {
-    const maxCardWidth = Math.min(150, window.innerWidth / 5);
-    document.querySelectorAll(".kart, .hedef-alan").forEach((element) => {
-      element.style.maxWidth = `${maxCardWidth}px`;
-    });
-  });
 });
