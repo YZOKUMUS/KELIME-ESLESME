@@ -134,7 +134,22 @@ h1 {
     width: 100%;
     margin-bottom: 15px;
   }
-
+  @media screen and (max-width: 768px) {
+    #app {
+        flex-direction: column;  /*Küçük ekranlarda, uygulama düşey olarak hizalanır */
+        height: auto;  /*Küçük ekranlarda, uygulama yüksekliği otomatik olarak ayarlanır */
+        padding: 10px;  /*Küçük ekranlarda, uygulama kenar boşlukları 10 piksel olarak ayarlanır */
+    }
+  
+    .arabic {
+        font-size: 80px; /*Küçük ekranlarda, Arapça kelime font boyutu 80 piksel olarak ayarlanır */
+        width: 95vw;        /*Küçük ekranlarda, Arapça kelime kartının genişliği 95 viewport genişliği olarak ayarlanır */
+        margin: 10px;     /*Küçük ekranlarda, Arapça kelime kartının kenar boşlukları 10 piksel olarak ayarlanır */
+    }
+  
+    .options button {
+        width: 100%;        /*Küçük ekranlarda, seçenek butonlarının genişliği yüzde 100 olarak ayarlanır */
+    }
   .kelime-grubu {
     flex-direction: column;
     align-items: center;
@@ -151,5 +166,11 @@ h1 {
     width: 100%;
     padding: 10px;
     font-size: 14px;
+  }
+}
+
+
+  .options button {
+      width: 100%;        /*Küçük ekranlarda, seçenek butonlarının genişliği yüzde 100 olarak ayarlanır */
   }
 }
