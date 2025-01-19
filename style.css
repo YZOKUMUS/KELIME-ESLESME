@@ -107,7 +107,7 @@ h1 {
   .hedef-alan {
     width: 150px; /* Sabit genişlik */
     height: 70px; /* Sabit yükseklik */
-    font-size: 1px;
+    font-size: 1.5rem; /* Gerekli font boyutu */
   }
 }
 
@@ -119,7 +119,7 @@ h1 {
   }
 
   h1 {
-    font-size: 11px;
+    font-size: 16px; /* Okunabilir başlık boyutu */
   }
 
   .kelime-grubu {
@@ -132,39 +132,39 @@ h1 {
   .hedef-alan {
     width: 120px; /* Sabit genişlik */
     height: 75px; /* Sabit yükseklik */
-    font-size: 12px;
+    font-size: 12px; /* Küçük ekranlar için uygun font boyutu */
   }
 
   .navigation button {
     width: 90%;
     padding: 1ch;
-    font-size: 8px;
+    font-size: 12px; /* Buton font boyutu */
   }
 
   .score {
-    font-size: 18px;
+    font-size: 18px; /* Puan boyutu */
   }
 }
 
 /* Daha küçük ekranlar (örneğin 480px altı) */
 @media (max-width: 480px) {
   h1 {
-    font-size: 11px;
+    font-size: 14px; /* Başlık boyutu */
   }
 
   .kart,
   .hedef-alan {
     width: 150px; /* Sabit genişlik */
     height: 70px; /* Sabit yükseklik */
-    font-size: 111em;
+    font-size: 1.2rem; /* Font boyutu */
   }
 
-  .navigation button {              
+  .navigation button {               
     font-size: 12px;
     padding: 8px;
   }
 
   .score {
-    font-size: 14px;
+    font-size: 14px; /* Puan boyutu */
   }
 }
