@@ -45,29 +45,28 @@ document.addEventListener("DOMContentLoaded", async () => {
       e.preventDefault();
       const draggedArabic = e.dataTransfer.getData("text/plain");
       const targetArabic = element.dataset.arabic;
-  
+
       if (draggedArabic === targetArabic) {
         element.classList.add("dogru");
         const correctCard = document.querySelector(`[data-arabic="${draggedArabic}"]`);
         correctCard.classList.add("dogru");
-  
+
         score += 10;
         scoreDisplay.textContent = score;
-  
+
         element.setAttribute("draggable", "false");
         correctCard.setAttribute("draggable", "false");
-  
+
         playArabicAudio(draggedArabic);
       } else {
         element.classList.add("yanlis");
         setTimeout(() => element.classList.remove("yanlis"), 500);
-  
+
         score -= 5;
         scoreDisplay.textContent = score;
       }
     });
   }
-  
 
   // Grup render etme fonksiyonu
   function renderGroup() {
