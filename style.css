@@ -71,20 +71,20 @@ h1 {
 .kelime-grubu {
   display: flex;
   justify-content: center;
-  margin: 20px 0;
+  margin: 10px 0;
   flex-wrap: nowrap; /* Alt alta gelmesini engelle */
-  gap: 10px; /* Öğeler arasında boşluk */
+  gap: 1px; /* Öğeler arasında boşluk */
 }
 
 .navigation button {
-  padding: 12px 24px;
-  margin: 10px 5px;
+  padding: 10px 12px;
+  margin: 9px 1px;
   border: none;
   background-color: #1e88e5;
   color: white;
   border-radius: 6px;
   cursor: pointer;
-  font-size: 16px;
+  font-size: 9px;
 }
 
 .navigation button:hover {
@@ -107,7 +107,7 @@ h1 {
   .hedef-alan {
     width: 150px; /* Sabit genişlik */
     height: 70px; /* Sabit yükseklik */
-    font-size: 1.5rem;
+    font-size: 1px;
   }
 }
 
@@ -115,11 +115,11 @@ h1 {
 @media (max-width: 768px) {
   .container {
     width: 90%;
-    padding: 15px;
+    padding: 25px;
   }
 
   h1 {
-    font-size: 1.8rem;
+    font-size: 11px;
   }
 
   .kelime-grubu {
@@ -130,36 +130,36 @@ h1 {
 
   .kart,
   .hedef-alan {
-    width: 150px; /* Sabit genişlik */
-    height: 70px; /* Sabit yükseklik */
-    font-size: 1.2rem;
+    width: 120px; /* Sabit genişlik */
+    height: 75px; /* Sabit yükseklik */
+    font-size: 12px;
   }
 
   .navigation button {
     width: 90%;
-    padding: 10px;
-    font-size: 14px;
+    padding: 1ch;
+    font-size: 8px;
   }
 
   .score {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
 /* Daha küçük ekranlar (örneğin 480px altı) */
 @media (max-width: 480px) {
   h1 {
-    font-size: 1.5rem;
+    font-size: 11px;
   }
 
   .kart,
   .hedef-alan {
     width: 150px; /* Sabit genişlik */
     height: 70px; /* Sabit yükseklik */
-    font-size: 1rem;
+    font-size: 111em;
   }
 
-  .navigation button {
+  .navigation button {              
     font-size: 12px;
     padding: 8px;
   }
