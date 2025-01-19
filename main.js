@@ -107,24 +107,20 @@ document.addEventListener("DOMContentLoaded", async () => {
         element.addEventListener("click", () => handleTurkishClick(element));
       }
 
-      // Mobil cihazlar için dokunmatik olayları ekleme
-      element.addEventListener("touchstart", (e) => e.preventDefault()); // Touch start prevent
       sutun.appendChild(element);
     });
 
     return sutun;
   }
 
-  // Arapça kelime tıklama işlevi (sadece sound_url ile sesli okuma)
   let selectedArabic = null;
 
   function handleArabicClick(item) {
     selectedArabic = item.arabic;
-    const audio = new Audio(item.soundUrl); // Sound URL üzerinden ses dosyasını oynat
+    const audio = new Audio(item.soundUrl);
     audio.play();
   }
 
-  // Türkçe kelime tıklama işlevi
   function handleTurkishClick(element) {
     if (selectedArabic) {
       const selectedTurkish = element.dataset.arabic;
@@ -149,7 +145,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     }
   }
 
-  // Array karıştırma fonksiyonu (Fisher-Yates)
   function shuffleArray(array) {
     for (let i = array.length - 1; i > 0; i--) {
       const j = Math.floor(Math.random() * (i + 1));

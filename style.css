@@ -36,18 +36,12 @@ body {
   align-items: center;
 }
 
-/* H1 başlık düzenlemesi */
-h1 {
-  font-size: 2rem;
-  margin-bottom: 10px;
-  color: hsl(30, 82%, 43%);
-}
-
-/* Puan kısmı */
-.score {
-  font-size: 16px;
-  color: #1e88e5;
-  font-weight: bold;
+.kelime-grubu {
+  display: flex;
+  justify-content: space-between; /* İki sütun arasında eşit boşluk */
+  flex-wrap: wrap; /* Yüksek ekranlarda bir alt satıra geçmesi için */
+  gap: 10px; /* Öğeler arasında boşluk */
+  margin-bottom: 20px;
 }
 
 /* Kelimeler ve hedef alanlar */
@@ -57,7 +51,7 @@ h1 {
   margin: 5px;
   background-color: #eceff1;
   border-radius: 10px;
-  width: 150px; /* Sabit genişlik */
+  width: 48%; /* Her bir kartın genişliğini ekran boyutuna göre ayarla */
   height: 70px; /* Sabit yükseklik */
   text-align: center;
   display: flex;
@@ -68,12 +62,14 @@ h1 {
   cursor: pointer;
 }
 
-.kelime-grubu {
-  display: flex;
-  justify-content: center;
-  margin: 10px 0;
-  flex-wrap: wrap; /* Alt alta gelmesini sağla */
-  gap: 10px; /* Öğeler arasında boşluk */
+.dogru {
+  background-color: #66bb6a;
+  pointer-events: none;
+  cursor: default;
+}
+
+.yanlis {
+  background-color: #ef5350;
 }
 
 .navigation button {
@@ -91,80 +87,23 @@ h1 {
   background-color: #1565c0;
 }
 
-.dogru {
-  background-color: #66bb6a;
-  pointer-events: none;
-  cursor: default;
-}
-
-.yanlis {
-  background-color: #ef5350;
-}
-
-/* Ekranın büyük olduğu durumlar için */
-@media (min-width: 1200px) {
-  .kart,
-  .hedef-alan {
-    width: 150px; /* Sabit genişlik */
-    height: 70px; /* Sabit yükseklik */
-    font-size: 1.5rem; /* Gerekli font boyutu */
-  }
-}
-
 /* Mobil uyumlu düzenleme */
 @media (max-width: 768px) {
-  .container {
-    width: 90%; /* Container'ı ekran boyutuna göre genişlet */
-    padding: 25px;
-  }
-
-  h1 {
-    font-size: 16px; /* Okunabilir başlık boyutu */
-  }
-
   .kelime-grubu {
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
+    flex-direction: column; /* Küçük ekranlarda tek sütun olarak düzenle */
+    gap: 5px;
   }
 
   .kart,
   .hedef-alan {
-    width: 120px; /* Sabit genişlik */
-    height: 75px; /* Sabit yükseklik */
-    font-size: 12px; /* Küçük ekranlar için uygun font boyutu */
+    width: 100%; /* Kartların genişliğini %100 yaparak tam ekran kullanımını sağla */
+    font-size: 1.2rem; /* Daha küçük font boyutu */
   }
 
   .navigation button {
     width: 90%;
     padding: 1ch;
-    font-size: 12px; /* Buton font boyutu */
-  }
-
-  .score {
-    font-size: 18px; /* Puan boyutu */
-  }
-}
-
-/* Daha küçük ekranlar (örneğin 480px altı) */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 14px; /* Başlık boyutu */
-  }
-
-  .kart,
-  .hedef-alan {
-    width: 100%; /* Ekran genişliğine göre tam sığdır */
-    height: 60px; /* Daha küçük yükseklik */
-    font-size: 1.2rem; /* Font boyutu */
-  }
-
-  .navigation button {               
     font-size: 12px;
-    padding: 8px;
-  }
-
-  .score {
-    font-size: 14px; /* Puan boyutu */
   }
 }
+
