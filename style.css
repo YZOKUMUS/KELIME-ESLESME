@@ -23,7 +23,7 @@ body {
 
 .container {
   width: 100%;
-  max-width: 1000px; /* Maksimum genişlik */
+  max-width: 100%; /* Maksimum genişlik 100% */
   padding: 20px;
   background-color: #edf75c;
   border-radius: 10px;
@@ -72,8 +72,8 @@ h1 {
   display: flex;
   justify-content: center;
   margin: 10px 0;
-  flex-wrap: nowrap; /* Alt alta gelmesini engelle */
-  gap: 1px; /* Öğeler arasında boşluk */
+  flex-wrap: wrap; /* Alt alta gelmesini sağla */
+  gap: 10px; /* Öğeler arasında boşluk */
 }
 
 .navigation button {
@@ -114,7 +114,7 @@ h1 {
 /* Mobil uyumlu düzenleme */
 @media (max-width: 768px) {
   .container {
-    width: 90%;
+    width: 90%; /* Container'ı ekran boyutuna göre genişlet */
     padding: 25px;
   }
 
@@ -154,8 +154,8 @@ h1 {
 
   .kart,
   .hedef-alan {
-    width: 150px; /* Sabit genişlik */
-    height: 70px; /* Sabit yükseklik */
+    width: 100%; /* Ekran genişliğine göre tam sığdır */
+    height: 60px; /* Daha küçük yükseklik */
     font-size: 1.2rem; /* Font boyutu */
   }
 
