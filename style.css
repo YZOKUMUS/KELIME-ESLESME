@@ -1,48 +1,55 @@
+/* Genel stil ayarları */
+*,
+*::before,
+*::after {
+  box-sizing: border-box; /* Border-box modelini kullan */
+}
+
 body {
-  font-family: 'AmiriQuranColored', Arial, sans-serif;      /* AmiriQuranColored fontunu kullan */
-  font-weight: normal;                                      /* Yazı tipi kalınlığı normal */
-  font-style: normal;                                       /* Yazı tipi stili normal */
-  background-color: #90bcf1;                              /* Sayfa arka plan rengi */
-  margin: 0;                                                /* Sayfa kenar boşlukları */
-  padding: 0;                                               /* Sayfa iç boşlukları */
-  color: #c00c15;                                         /* Yazı rengi */                      
+  font-family: 'AmiriQuranColored', Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
+  background-color: #90bcf1;
+  margin: 0;
+  padding: 0;
+  color: #c00c15;
 }
 
 .container {
-  width: 90%;                                         /* Sayfa içeriğinin genişliği */                    
-  max-width: 1000px;                                /* Sayfa içeriğinin maksimum genişliği */             
-  margin: 10px auto;                              /* Sayfa içeriğinin ortalanması */          
-  padding: 10px;                                 /* Sayfa içeriğinin iç boşluğu */              
-  background-color: #edf75c;                 /* Sayfa içeriğinin arka plan rengi */         
-  border-radius: 10px;                      /* Sayfa içeriğinin kenar yuvarlatma */           
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);                             /* Sayfa içeriğinin gölgelendirilmesi */                                                      
-  text-align: center;                                                     /* Sayfa içeriğinin metin hizalama */
+  width: 90%;
+  max-width: 1000px;
+  margin: 10px auto;
+  padding: 10px;
+  background-color: #edf75c;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
 }
 
 h1 {
-  font-size: 2rem;                                          /* Başlık font büyüklüğü */                                                   
-  margin-bottom: 1px;                                        /* Başlık alt boşluk */
-  color: hsl(30, 82%, 43%);                                   /* Başlık rengi */
+  font-size: 2rem;
+  margin-bottom: 1px;
+  color: hsl(30, 82%, 43%);
 }
 
 .score {
-  font-size: 18px;                             /* Skor font büyüklüğü */        
-  color: #1e88e5;                            /* Skor rengi */               
-  font-weight: bold;                     /* Skor font kalınlığı */                
+  font-size: 16px;
+  color: #1e88e5;
+  font-weight: bold;
 }
 
 .kart,
 .hedef-alan {
-  padding: 10px;                                    /* Kart ve hedef alanı iç boşluğu */                      
-  margin: 5px;                                    /* Kart ve hedef alanı kenar boşluğu */                 
-  background-color: #eceff1;             /* Kart ve hedef alanı arka plan rengi */                
-  border-radius: 10px;                    /* Kart ve hedef alanı kenar yuvarlatma */                
-  width: 150px;                               /* Kart ve hedef alanı genişliği */               
-  height: 70px;                                             /* Kart ve hedef alanı yüksekliği */
-  text-align: center;                           /* Kart ve hedef alanı metin hizalama */
-  display: flex;                                    /* Kart ve hedef alanı içerik düzeni */
+  padding: 10px;
+  margin: 5px;
+  background-color: #eceff1;
+  border-radius: 10px;
+  width: 150px;
+  height: 70px;
+  text-align: center;
+  display: flex;
   align-items: center;
-  justify-content: center;                            
+  justify-content: center;
   font-size: 1.5rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   cursor: pointer;
@@ -78,6 +85,16 @@ h1 {
 
 .yanlis {
   background-color: #ef5350;
+}
+
+/* M33 ve benzer geniş ekranlar için */
+@media (min-width: 1200px) {
+  .kart,
+  .hedef-alan {
+    width: 180px;
+    height: 80px;
+    font-size: 1.6rem;
+  }
 }
 
 /* Mobil uyumluluk için düzenlemeler */
